@@ -3,6 +3,7 @@ syntax = "proto3";
 import "Quizbox.proto";
 import "DeviceInfo.proto";
 import "FirmwareUpdate.proto";
+import "Config.proto";
 
 option csharp_namespace = "QuizboxUI.Protos";
 
@@ -27,5 +28,6 @@ message Reaction {
     QuizboxMessage quizbox = 10;
     DeviceInfo device_info = 11;
     FirmwareUpdate firmware_update = 12;
+    ConfigMessage config = 13;
   }
 }

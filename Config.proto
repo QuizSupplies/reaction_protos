@@ -1,0 +1,79 @@
+syntax = "proto3";
+
+option csharp_namespace = "QuizboxUI.Protos";
+
+message ConfigColor {
+  uint32 red = 1;
+  uint32 green = 2;
+  uint32 blue = 3;
+}
+
+message ConfigColorPatch {
+  optional uint32 red = 2;
+  optional uint32 green = 4;
+  optional uint32 blue = 6;
+}
+
+message ConfigSnapshot {
+  uint32 schema_version = 1;
+  uint32 revision = 2;
+  uint32 timer_60_seconds = 3;
+  uint32 timer_120_seconds = 4;
+  uint32 timer_530_single_seconds = 5;
+  uint32 timer_530_double_seconds = 6;
+  uint32 contest_seconds = 7;
+  uint32 contest_pause_seconds = 8;
+  uint32 timer_expired_holdoff_ms = 9;
+  uint32 pairing_timeout_ms = 10;
+  uint32 buzzer_volume_percent = 11;
+  ConfigColor power_led_color = 12;
+  ConfigColor active_top_red_team = 13;
+  ConfigColor active_top_green_team = 14;
+  ConfigColor active_front_red_team = 15;
+  ConfigColor active_front_green_team = 16;
+  ConfigColor idle_front_red_team = 17;
+  ConfigColor idle_front_green_team = 18;
+  uint32 idle_top_red_brightness = 19;
+  uint32 idle_top_green_brightness = 20;
+}
+
+message ConfigPatch {
+  optional uint32 timer_60_seconds = 2;
+  optional uint32 timer_120_seconds = 4;
+  optional uint32 timer_530_single_seconds = 6;
+  optional uint32 timer_530_double_seconds = 8;
+  optional uint32 contest_seconds = 10;
+  optional uint32 contest_pause_seconds = 12;
+  optional uint32 timer_expired_holdoff_ms = 14;
+  optional uint32 pairing_timeout_ms = 16;
+  optional uint32 buzzer_volume_percent = 18;
+  ConfigColorPatch power_led_color = 19;
+  ConfigColorPatch active_top_red_team = 20;
+  ConfigColorPatch active_top_green_team = 21;
+  ConfigColorPatch active_front_red_team = 22;
+  ConfigColorPatch active_front_green_team = 23;
+  ConfigColorPatch idle_front_red_team = 24;
+  ConfigColorPatch idle_front_green_team = 25;
+  optional uint32 idle_top_red_brightness = 27;
+  optional uint32 idle_top_green_brightness = 29;
+}
+
+message ConfigMessage {
+  enum Command {
+    GET = 0;
+    SET = 1;
+    RESET = 2;
+    NOTIFY = 3;
+  }
+
+  enum Result {
+    OK = 0;
+    INVALID = 1;
+    STORE_ERROR = 2;
+  }
+
+  Command command = 1;
+  Result result = 2;
+  ConfigSnapshot current = 3;
+  ConfigPatch patch = 4;
+}
