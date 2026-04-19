@@ -19,8 +19,8 @@ message Reaction {
     DeviceInfo   = 1;
   }
 
-  MESSAGE_TYPE type           = 1;
-  QUERY_TYPE   queryType      = 2;
+  optional MESSAGE_TYPE type           = 1;
+  optional QUERY_TYPE   queryType      = 2;
   uint32       sequenceNumber = 3; //potentially unused
   uint32       timestamp      = 4; //in milliseconds since wake
 

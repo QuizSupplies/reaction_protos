@@ -72,7 +72,7 @@ message ConfigMessage {
     STORE_ERROR = 2;
   }
 
-  Command command = 1;
+  optional Command command = 1;
   Result result = 2;
   ConfigSnapshot current = 3;
   ConfigPatch patch = 4;
