@@ -7,6 +7,28 @@ import "Config.proto";
 
 option csharp_namespace = "QuizboxUI.Protos";
 
+message BleAccessMessage {
+  enum Status {
+    NO_CONNECTION    = 0;
+    READ_ONLY        = 1;
+    WRITE_AUTHORIZED = 2;
+    PAIRING_MODE     = 3;
+  }
+
+  enum WriteRejectReason {
+    WRITE_REJECT_UNKNOWN           = 0;
+    WRITE_REJECT_NOT_AUTHORIZED    = 1;
+    WRITE_REJECT_NOT_PAIRED        = 2;
+    WRITE_REJECT_NOT_ENCRYPTED     = 3;
+    WRITE_REJECT_NOT_AUTHENTICATED = 4;
+  }
+
+  Status status = 1;
+  bool write_rejected = 2;
+  WriteRejectReason reject_reason = 3;
+  uint32 conn_handle = 4;
+}
+
 message Reaction {
   enum MESSAGE_TYPE {
     Query   = 0;
@@ -29,5 +51,6 @@ message Reaction {
     DeviceInfo device_info = 11;
     FirmwareUpdate firmware_update = 12;
     ConfigMessage config = 13;
+    BleAccessMessage ble_access = 14;
   }
 }
