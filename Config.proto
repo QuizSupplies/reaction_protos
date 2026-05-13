@@ -35,6 +35,14 @@ message ConfigSnapshot {
   ConfigColor idle_front_green_team = 18;
   uint32 idle_top_red_brightness = 19;
   uint32 idle_top_green_brightness = 20;
+  uint32 contest_gap_ms = 21;
+  ConfigColor ble_read_only_color = 22;
+  ConfigColor ble_write_authorized_color = 23;
+  ConfigColor ble_pairing_color = 24;
+  uint32 ble_pin_max_failures = 25;
+  uint32 ble_pin_lockout_ms = 26;
+  uint32 ble_stale_bond_quick_timeout_ms = 27;
+  uint32 ble_stale_bond_strikes = 28;
 }
 
 message ConfigPatch {
@@ -56,6 +64,45 @@ message ConfigPatch {
   ConfigColorPatch idle_front_green_team = 25;
   optional uint32 idle_top_red_brightness = 27;
   optional uint32 idle_top_green_brightness = 29;
+  optional uint32 contest_gap_ms = 31;
+  ConfigColorPatch ble_read_only_color = 32;
+  ConfigColorPatch ble_write_authorized_color = 33;
+  ConfigColorPatch ble_pairing_color = 34;
+  optional uint32 ble_pin_max_failures = 35;
+  optional uint32 ble_pin_lockout_ms = 36;
+  optional uint32 ble_stale_bond_quick_timeout_ms = 37;
+  optional uint32 ble_stale_bond_strikes = 38;
+}
+
+message StoredDeviceConfig {
+  optional uint32 schema_version = 1;
+  optional uint32 revision = 2;
+  optional uint32 timer_60_seconds = 3;
+  optional uint32 timer_120_seconds = 4;
+  optional uint32 timer_530_single_seconds = 5;
+  optional uint32 timer_530_double_seconds = 6;
+  optional uint32 contest_seconds = 7;
+  optional uint32 contest_pause_seconds = 8;
+  optional uint32 timer_expired_holdoff_ms = 9;
+  optional uint32 pairing_timeout_ms = 10;
+  optional uint32 buzzer_volume_percent = 11;
+  ConfigColorPatch power_led_color = 12;
+  ConfigColorPatch active_top_red_team = 13;
+  ConfigColorPatch active_top_green_team = 14;
+  ConfigColorPatch active_front_red_team = 15;
+  ConfigColorPatch active_front_green_team = 16;
+  ConfigColorPatch idle_front_red_team = 17;
+  ConfigColorPatch idle_front_green_team = 18;
+  optional uint32 idle_top_red_brightness = 19;
+  optional uint32 idle_top_green_brightness = 20;
+  optional uint32 contest_gap_ms = 21;
+  ConfigColorPatch ble_read_only_color = 22;
+  ConfigColorPatch ble_write_authorized_color = 23;
+  ConfigColorPatch ble_pairing_color = 24;
+  optional uint32 ble_pin_max_failures = 25;
+  optional uint32 ble_pin_lockout_ms = 26;
+  optional uint32 ble_stale_bond_quick_timeout_ms = 27;
+  optional uint32 ble_stale_bond_strikes = 28;
 }
 
 message ConfigMessage {
