@@ -43,6 +43,7 @@ message ConfigSnapshot {
   uint32 ble_pin_lockout_ms = 26;
   uint32 ble_stale_bond_quick_timeout_ms = 27;
   uint32 ble_stale_bond_strikes = 28;
+  optional bool bleed_mode_enabled = 29;
 }
 
 message ConfigPatch {
@@ -72,6 +73,7 @@ message ConfigPatch {
   optional uint32 ble_pin_lockout_ms = 36;
   optional uint32 ble_stale_bond_quick_timeout_ms = 37;
   optional uint32 ble_stale_bond_strikes = 38;
+  optional bool bleed_mode_enabled = 39;
 }
 
 message StoredDeviceConfig {
@@ -103,6 +105,7 @@ message StoredDeviceConfig {
   optional uint32 ble_pin_lockout_ms = 26;
   optional uint32 ble_stale_bond_quick_timeout_ms = 27;
   optional uint32 ble_stale_bond_strikes = 28;
+  optional bool bleed_mode_enabled = 29;
 }
 
 message ConfigMessage {
